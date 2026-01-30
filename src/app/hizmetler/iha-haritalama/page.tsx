@@ -35,7 +35,7 @@ export default function IhaPage() {
               >
                 <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-500 font-mono text-xs font-bold tracking-wider">
                   <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                  UAV MAPPING TECHNOLOGY v2.0
+                  Çakırbey Harita ve Mühendislik
                 </div>
                 
                 <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight text-navy-900 dark:text-white">
@@ -54,7 +54,7 @@ export default function IhaPage() {
                   href="#teknoloji"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-navy-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-lg hover:bg-navy-800 dark:hover:bg-zinc-200 transition-colors shadow-xl shadow-navy-900/20 dark:shadow-white/10"
+                  className="inline-flex items-center gap-3 rounded-full border border-zinc-200 bg-white px-8 py-4 text-lg font-bold text-navy-900 shadow-xl shadow-black/5 transition-colors hover:bg-zinc-50 dark:border-white/15 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                 >
                   Teknolojiyi Keşfet
                   <ArrowRight size={20} />
