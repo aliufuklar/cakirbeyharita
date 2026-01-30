@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { FileText, CheckCircle2, ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { SITE, localizedPath, type SiteLocale } from "@/lib/site";
 import { getServiceDetail } from "@/data/serviceDetails";
 import { SERVICE_SLUGS } from "@/data/serviceSlugs";
@@ -11,8 +11,12 @@ export async function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const locale = (await getLocale()) as SiteLocale;
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: SiteLocale; slug: string };
+}): Promise<Metadata> {
+  const locale = params.locale;
   const t = await getTranslations({ locale, namespace: "SEO" });
   const service = getServiceDetail(locale, params.slug);
 
@@ -37,8 +41,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function ServiceDetail({ params }: { params: { slug: string } }) {
-  const locale = (await getLocale()) as SiteLocale;
+export default async function ServiceDetail({ params }: { params: { locale: SiteLocale; slug: string } }) {
+  const locale = params.locale;
   const t = await getTranslations({ locale, namespace: "ServiceDetail" });
   const homePath = localizedPath(locale, "/");
   const service = getServiceDetail(locale, params.slug);
@@ -166,4 +170,3 @@ export default async function ServiceDetail({ params }: { params: { slug: string
     </div>
   );
 }
-
