@@ -15,12 +15,11 @@ import {
   Plane 
 } from "lucide-react";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 
 interface Service {
   id: string;
   slug: string;
-  title: string;
-  description: string;
   icon: React.ElementType;
 }
 
@@ -28,36 +27,26 @@ const lihkabServices: Service[] = [
   {
     id: "l1",
     slug: "aplikasyon-sinir-tespiti",
-    title: "Aplikasyon (Sınır Tespiti)",
-    description: "Parsel sınırlarınızın zeminde hassas ölçümlerle tespit edilmesi ve işaretlenmesi.",
     icon: MapPin,
   },
   {
     id: "l2",
     slug: "cins-degisikligi",
-    title: "Cins Değişikliği",
-    description: "Taşınmazınızın niteliğinin yapılı veya yapısız olarak tapu kaydında güncellenmesi.",
     icon: RefreshCw,
   },
   {
     id: "l3",
     slug: "irtifak-hakki-tesisi",
-    title: "İrtifak Hakkı Tesisi",
-    description: "Taşınmaz üzerinde geçit, kaynak veya üst hakkı gibi kullanım haklarının tesisi.",
     icon: ArrowRightLeft,
   },
   {
     id: "l4",
     slug: "birlestirme-tevhid",
-    title: "Birleştirme (Tevhid)",
-    description: "Birden fazla komşu parselin tek bir parsel altında teknik olarak birleştirilmesi.",
     icon: Combine,
   },
   {
     id: "l5",
     slug: "yer-gosterme",
-    title: "Yer Gösterme",
-    description: "Parselinizin konumunun kadastro paftasına göre zeminde size gösterilmesi.",
     icon: FileCheck,
   },
 ];
@@ -66,41 +55,37 @@ const engineeringServices: Service[] = [
   {
     id: "e1",
     slug: "halihazir-harita-uretimi",
-    title: "Halihazır Harita Üretimi",
-    description: "Mevcut arazi durumunun, yapıların ve detayların güncel haritalara işlenmesi.",
     icon: MapIcon,
   },
   {
     id: "e2",
     slug: "imar-uygulamalari",
-    title: "İmar Uygulamaları",
-    description: "18. Madde uygulamaları ile ham arazilerin imar planına uygun arsalara dönüşümü.",
     icon: Building2,
   },
   {
     id: "e3",
     slug: "plankote",
-    title: "Plankote",
-    description: "Mimari projeler için arazinin eğim ve kot detaylarını içeren teknik haritalama.",
     icon: Ruler,
   },
   {
     id: "e4",
     slug: "santiye-olcumleri-kubaj",
-    title: "Şantiye Ölçümleri & Kübaj",
-    description: "Hafriyat, dolgu ve yapı aplikasyonu süreçlerinde hassas şantiye ölçümleri.",
     icon: Calculator,
   },
   {
     id: "e5",
     slug: "drone-ile-haritalama",
-    title: "Drone (İHA) ile Haritalama",
-    description: "Geniş alanların fotogrametrik yöntemlerle havadan yüksek çözünürlüklü haritalanması.",
     icon: Plane,
   },
 ];
 
 const ServiceCard = ({ service, type }: { service: Service; type: "lihkab" | "engineering" }) => {
+  const locale = useLocale();
+  const t = useTranslations("Services");
+  const title = t(`${type}.${service.id}.title`);
+  const description = t(`${type}.${service.id}.description`);
+  const basePrefix = `/${locale}`;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -108,29 +93,29 @@ const ServiceCard = ({ service, type }: { service: Service; type: "lihkab" | "en
       viewport={{ once: true }}
       whileHover={{ y: -5, scale: 1.02 }}
       transition={{ duration: 0.3 }}
-      className={`group relative p-6 rounded-2xl border transition-all duration-300 h-full flex flex-col
+      className={`group relative mx-auto flex h-full w-full max-w-[90%] flex-col rounded-2xl border p-5 transition-all duration-300 sm:max-w-none sm:p-6
         ${
           type === "lihkab"
-            ? "bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/10"
-            : "bg-zinc-50 dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800 hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/10"
+            ? "bg-white dark:bg-white border-zinc-200/90 dark:border-zinc-200/20 hover:border-[#9E3238]/40 hover:shadow-lg hover:shadow-[#9E3238]/10"
+            : "bg-zinc-50 dark:bg-zinc-50 border-zinc-200/90 dark:border-zinc-200/20 hover:border-[#9E3238]/40 hover:shadow-lg hover:shadow-[#9E3238]/10"
         }
       `}
     >
-      <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-navy-50 dark:bg-navy-900/30 text-navy-900 dark:text-navy-100 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-navy-50 text-navy-900 transition-colors duration-300 group-hover:bg-[#9E3238] group-hover:text-white">
         <service.icon size={24} strokeWidth={1.5} />
       </div>
-      <h3 className="text-lg font-semibold text-navy-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-500 transition-colors">
-        {service.title}
+      <h3 className="mb-2 text-lg font-semibold text-navy-900 transition-colors group-hover:text-[#9E3238]">
+        {title}
       </h3>
-      <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 flex-grow">
-        {service.description}
+      <p className="mb-6 flex-grow text-sm leading-relaxed text-zinc-600">
+        {description}
       </p>
       
       <Link 
-        href={`/hizmetler/${service.slug}`}
-        className="inline-flex items-center text-sm font-medium text-amber-600 hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400 transition-colors"
+        href={`${basePrefix}/hizmetler/${service.slug}`}
+        className="inline-flex items-center text-sm font-medium text-[#9E3238] transition-colors hover:text-[#7f282d]"
       >
-        Detaylı Bilgi
+        {t("details")}
         <ArrowRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
       </Link>
       
@@ -143,6 +128,8 @@ const ServiceCard = ({ service, type }: { service: Service; type: "lihkab" | "en
 };
 
 export default function Services() {
+  const t = useTranslations("Services");
+
   return (
     <section id="services" className="py-24 relative overflow-hidden">
       {/* Background Elements */}
@@ -157,7 +144,7 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-4"
           >
-            Hizmetlerimiz
+            {t("title")}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -166,7 +153,7 @@ export default function Services() {
             transition={{ delay: 0.1 }}
             className="text-lg text-zinc-600 dark:text-zinc-400"
           >
-            Profesyonel kadastro ve mühendislik çözümleri
+            {t("subtitle")}
           </motion.p>
         </div>
 
@@ -174,13 +161,13 @@ export default function Services() {
         <div className="mb-20">
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800"></div>
-            <span className="px-4 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-medium text-navy-900 dark:text-zinc-300 bg-white dark:bg-black shadow-sm">
-              LİHKAB (Lisanslı Harita Kadastro)
+            <span className="px-4 py-1.5 rounded-full border border-zinc-200/90 dark:border-zinc-200/20 text-sm font-medium text-navy-900 bg-white dark:bg-white shadow-sm">
+              {t("lihkabLabel")}
             </span>
             <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
             {lihkabServices.map((service) => (
               <ServiceCard key={service.id} service={service} type="lihkab" />
             ))}
@@ -191,13 +178,13 @@ export default function Services() {
         <div>
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800"></div>
-            <span className="px-4 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-medium text-navy-900 dark:text-zinc-300 bg-white dark:bg-black shadow-sm">
-              Haritalama ve Mühendislik
+            <span className="px-4 py-1.5 rounded-full border border-zinc-200/90 dark:border-zinc-200/20 text-sm font-medium text-navy-900 bg-white dark:bg-white shadow-sm">
+              {t("engineeringLabel")}
             </span>
             <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
             {engineeringServices.map((service) => (
               <ServiceCard key={service.id} service={service} type="engineering" />
             ))}

@@ -1,0 +1,186 @@
+{
+  "Nav": {
+    "services": "Services",
+    "iha": "UAV",
+    "about": "About",
+    "contact": "Contact",
+    "quote": "Get a Quote",
+    "tr": "TR",
+    "en": "EN"
+  },
+  "Hero": {
+    "badge": "Corporate Mapping • Licensed Survey Office",
+    "titleLine1": "A Future Drawn with Precision,",
+    "titleHighlight": "Licensed Expertise",
+    "description": "In surveying, registration and mapping processes built on engineering discipline; we deliver clarity, confidence and verifiable results.",
+    "ctaServices": "Explore Our Services",
+    "ctaContact": "Contact Us",
+    "imageBadgeTitle": "Çakırbey Harita",
+    "imageBadgeSubtitle": "Professional Surveying & Engineering Solutions"
+  },
+  "Services": {
+    "title": "Our Services",
+    "subtitle": "Professional cadastral and engineering solutions",
+    "lihkabLabel": "Licensed Cadastral Survey Office (LİHKAB)",
+    "engineeringLabel": "Mapping & Engineering",
+    "details": "Learn More",
+    "lihkab": {
+      "l1": {
+        "title": "Stakeout (Boundary Determination)",
+        "description": "Precise determination and marking of parcel boundaries on site."
+      },
+      "l2": {
+        "title": "Land Use Change Registration",
+        "description": "Updating your property classification in the title deed records (built/unbuilt)."
+      },
+      "l3": {
+        "title": "Easement Right Establishment",
+        "description": "Establishing usage rights such as right of way, water source or superficies."
+      },
+      "l4": {
+        "title": "Parcel Consolidation (Tevhid)",
+        "description": "Technical consolidation of adjacent parcels into a single parcel."
+      },
+      "l5": {
+        "title": "On-Site Parcel Location",
+        "description": "Showing the location of your parcel on the ground based on cadastral maps."
+      }
+    },
+    "engineering": {
+      "e1": {
+        "title": "As-Built / Base Map Production",
+        "description": "Mapping current site conditions, structures and details onto up-to-date maps."
+      },
+      "e2": {
+        "title": "Zoning Applications",
+        "description": "Article 18 implementations to transform raw land into planned parcels."
+      },
+      "e3": {
+        "title": "Topographic Survey (Plankote)",
+        "description": "Technical surveying with elevation and slope details for architectural projects."
+      },
+      "e4": {
+        "title": "Construction Surveys & Volume Calculations",
+        "description": "Accurate construction surveys for excavation/fill and stakeout workflows."
+      },
+      "e5": {
+        "title": "Drone (UAV) Mapping",
+        "description": "High-resolution aerial mapping of large areas with photogrammetric methods."
+      }
+    }
+  },
+  "About": {
+    "badgeLabel": "License No",
+    "badgeValue": "6307-775",
+    "titleLine1": "Modern Technology,",
+    "titleLine2": "Licensed Experience",
+    "description1": "In Şanlıurfa and Haliliye, led by Fikret Çakır; we provide authorized mapping, cadastral and engineering services with modern technology.",
+    "description2": "With our 6307-775 license, we are your reliable partner across a wide range of services—from property matters and zoning applications to precise construction surveys and drone mapping. We prioritize legal validity and technical accuracy in every project.",
+    "stats": {
+      "experience": "Years of Experience",
+      "projects": "Completed Projects",
+      "satisfaction": "Client Satisfaction"
+    },
+    "systemActive": "SYSTEM ACTIVE • 37.16° N, 38.79° E"
+  },
+  "Contact": {
+    "title": "Get in Touch",
+    "subtitle": "Get professional solutions and technical consultancy for your projects.",
+    "form": {
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Your name",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "+90 5XX XXX XX XX",
+      "emailLabel": "Email",
+      "emailPlaceholder": "name@example.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us about your project or request...",
+      "send": "Send"
+    },
+    "infoTitle": "Contact Details",
+    "addressTitle": "Address",
+    "addressValue": "Yenişehir District, Haliliye / Şanlıurfa",
+    "phoneTitle": "Phone",
+    "emailTitle": "Email",
+    "whatsapp": "WhatsApp",
+    "mappingEmailLabel": "Mapping"
+  },
+  "Footer": {
+    "licenseLine1": "LICENSE NO: 6307 - 775",
+    "licenseLine2": "LICENSED SURVEYING & CADASTRAL ENGINEERING OFFICE",
+    "ownerLine1": "Fikret ÇAKIR",
+    "ownerLine2": "Licensed Survey Engineer",
+    "contact": "Contact",
+    "phone": "Phone",
+    "email": "Email",
+    "rights": "All rights reserved.",
+    "designBy": "Design by Mirafikirevi"
+  },
+  "SEO": {
+    "homeTitle": "Çakırbey Harita | Licensed Survey Office in Şanlıurfa",
+    "homeDescription": "Licensed surveying, cadastral and engineering services in Şanlıurfa/Haliliye. Stakeout, land use change, zoning applications, drone/UAV mapping and construction surveys.",
+    "homeKeywords": "surveying, cadastral, LİHKAB, Şanlıurfa, Haliliye, stakeout, boundary, zoning, plankote, base map, volume calculation, construction survey, drone, UAV mapping",
+    "ihaTitle": "UAV Mapping | Çakırbey Harita & Engineering",
+    "ihaDescription": "Drone/UAV photogrammetry, orthophoto production, 3D terrain models and fast field measurements. High-accuracy UAV mapping services in Şanlıurfa.",
+    "ihaKeywords": "UAV mapping, drone mapping, photogrammetry, orthophoto, 3D terrain model, point cloud, GNSS, Şanlıurfa",
+    "serviceDetailTitle": "Service Details | Çakırbey Harita",
+    "notFoundTitle": "Page Not Found"
+  },
+  "ServiceDetail": {
+    "back": "Back to Services",
+    "badge": "Service Detail",
+    "detailTitle": "Service Detail",
+    "processTitle": "Process",
+    "documentsTitle": "Required Documents",
+    "startNowTitle": "Get Started",
+    "startNowText": "Get a quick quote for your project or contact us via WhatsApp.",
+    "quoteCta": "Request a Quote",
+    "whatsappCta": "Get Info on WhatsApp",
+    "whatsappText": "Hello, I would like to get information about {service}."
+  },
+  "IHA": {
+    "badge": "Çakırbey Harita & Engineering",
+    "titleLine1": "Next-Generation Survey Technology:",
+    "titleHighlight": "UAV Mapping",
+    "description": "Fast and reliable digital data with centimeter-level accuracy across large areas. Engineering solutions that move your project beyond traditional methods.",
+    "ctaExplore": "Explore the Technology",
+    "features": {
+      "dtm": {
+        "title": "Digital Terrain Models (DTM/DSM)",
+        "desc": "Create 3D digital twins of terrain. A base layer for surface analysis and slope maps."
+      },
+      "volume": {
+        "title": "Accurate Volume Calculations",
+        "desc": "Reliable cut/fill analysis for cost control and progress reporting on construction sites."
+      },
+      "ortho": {
+        "title": "High-Resolution Orthophoto",
+        "desc": "Up-to-date aerial imagery with centimeter-level GSD for planning and visualization."
+      },
+      "model": {
+        "title": "3D Modeling & Visualization",
+        "desc": "Realistic models for city planning and engineering projects with photorealistic presentation."
+      }
+    },
+    "speedTitleLine1": "The Perfect Balance",
+    "speedTitleHighlight": "of Speed & Precision",
+    "speedDescription": "We complete surveys that take weeks with traditional methods in hours using UAV technology. Autonomous flights and AI-assisted processing minimize human error.",
+    "statSpeedValue": "5x",
+    "statSpeedLabel": "Faster Data Collection",
+    "statDataValue": "100%",
+    "statDataLabel": "Digital & Traceable Data",
+    "dashboardStatus": "SYSTEM STATUS: ONLINE",
+    "dashboardGnss": "GNSS SATELLITES",
+    "dashboardGnssValue": "24 LOCKED",
+    "dashboardRtk": "RTK PRECISION",
+    "dashboardRtkValue": "1.2 CM",
+    "dashboardAlt": "FLIGHT ALTITUDE",
+    "dashboardAltValue": "120 M",
+    "dashboardBattery": "BATTERY LEVEL",
+    "dashboardBatteryValue": "98%",
+    "ctaTitle": "Meet Our Technology",
+    "ctaDescription": "We use the latest technology to take your projects to the next level. Contact us for details and a demo presentation.",
+    "ctaButton": "Let’s Talk About UAV Projects",
+    "ctaWhatsappText": "Hello, I would like to discuss your UAV mapping services."
+  }
+}

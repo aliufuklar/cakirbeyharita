@@ -1,8 +1,10 @@
 import Container from "./Container";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations("Footer");
   const year = new Date().getFullYear();
 
   return (
@@ -19,18 +21,18 @@ export default function Footer() {
               className="h-12 w-auto max-w-[220px]"
             />
             <div className="text-xs font-semibold tracking-[0.14em] text-brand-navy/80">
-              <span className="block">6307 - 775 NOLU</span>
-              <span className="block">LİSANSLI HARİTA KADASTRO MÜHENDİSLİK BÜROSU</span>
+              <span className="block">{t("licenseLine1")}</span>
+              <span className="block">{t("licenseLine2")}</span>
             </div>
             <div className="text-sm font-semibold tracking-tight text-brand-navy">
-              Fikret ÇAKIR <span className="text-muted">- Lisanslı Harita Mühendisi</span>
+              {t("ownerLine1")} <span className="text-muted">- {t("ownerLine2")}</span>
             </div>
           </div>
 
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-sm font-semibold text-brand-amber">
               <MapPin className="h-4 w-4" />
-              İletişim
+              {t("contact")}
             </div>
             <div className="space-y-3 text-sm text-muted">
               <div>
@@ -42,7 +44,7 @@ export default function Footer() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-xs font-semibold tracking-wide text-brand-navy/70">
                   <Phone className="h-4 w-4 text-brand-amber" />
-                  Telefon
+                  {t("phone")}
                 </div>
                 <a
                   className="block font-semibold text-brand-navy transition-colors hover:text-brand-amber"
@@ -63,7 +65,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-sm font-semibold text-brand-amber">
               <Mail className="h-4 w-4" />
-              E-posta
+              {t("email")}
             </div>
             <div className="space-y-2 text-sm text-muted">
               <a
@@ -83,14 +85,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-sm text-muted md:flex-row md:items-center md:justify-between">
-          <div>© {year} Çakırbey Harita. Tüm hakları saklıdır.</div>
+          <div>© {year} Çakırbey Harita. {t("rights")}</div>
           <a
             href="https://www.mirafikirevi.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs font-medium tracking-tight text-brand-navy/60 transition-colors hover:text-brand-amber"
           >
-            Design by Mirafikirevi
+            {t("designBy")}
           </a>
         </div>
       </Container>

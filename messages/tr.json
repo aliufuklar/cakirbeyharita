@@ -1,0 +1,186 @@
+{
+  "Nav": {
+    "services": "Hizmetler",
+    "iha": "İHA",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "quote": "Teklif Al",
+    "tr": "TR",
+    "en": "EN"
+  },
+  "Hero": {
+    "badge": "Kurumsal Haritalama • LİHKAB",
+    "titleLine1": "Hassasiyetle Çizilen Gelecek,",
+    "titleHighlight": "Lisanslı Uzmanlık",
+    "description": "Mühendislik disiplinine dayanan ölçüm, tescil ve haritalama süreçlerinde; netlik, güven ve doğrulanabilir sonuçlar üretiriz.",
+    "ctaServices": "Hizmetlerimizi İnceleyin",
+    "ctaContact": "İletişime Geçin",
+    "imageBadgeTitle": "Çakırbey Harita",
+    "imageBadgeSubtitle": "Profesyonel Ölçüm ve Mühendislik Çözümleri"
+  },
+  "Services": {
+    "title": "Hizmetlerimiz",
+    "subtitle": "Profesyonel kadastro ve mühendislik çözümleri",
+    "lihkabLabel": "LİHKAB (Lisanslı Harita Kadastro)",
+    "engineeringLabel": "Haritalama ve Mühendislik",
+    "details": "Detaylı Bilgi",
+    "lihkab": {
+      "l1": {
+        "title": "Aplikasyon (Sınır Tespiti)",
+        "description": "Parsel sınırlarınızın zeminde hassas ölçümlerle tespit edilmesi ve işaretlenmesi."
+      },
+      "l2": {
+        "title": "Cins Değişikliği",
+        "description": "Taşınmazınızın niteliğinin yapılı veya yapısız olarak tapu kaydında güncellenmesi."
+      },
+      "l3": {
+        "title": "İrtifak Hakkı Tesisi",
+        "description": "Taşınmaz üzerinde geçit, kaynak veya üst hakkı gibi kullanım haklarının tesisi."
+      },
+      "l4": {
+        "title": "Birleştirme (Tevhid)",
+        "description": "Birden fazla komşu parselin tek bir parsel altında teknik olarak birleştirilmesi."
+      },
+      "l5": {
+        "title": "Yer Gösterme",
+        "description": "Parselinizin konumunun kadastro paftasına göre zeminde size gösterilmesi."
+      }
+    },
+    "engineering": {
+      "e1": {
+        "title": "Halihazır Harita Üretimi",
+        "description": "Mevcut arazi durumunun, yapıların ve detayların güncel haritalara işlenmesi."
+      },
+      "e2": {
+        "title": "İmar Uygulamaları",
+        "description": "18. Madde uygulamaları ile ham arazilerin imar planına uygun arsalara dönüşümü."
+      },
+      "e3": {
+        "title": "Plankote",
+        "description": "Mimari projeler için arazinin eğim ve kot detaylarını içeren teknik haritalama."
+      },
+      "e4": {
+        "title": "Şantiye Ölçümleri & Kübaj",
+        "description": "Hafriyat, dolgu ve yapı aplikasyonu süreçlerinde hassas şantiye ölçümleri."
+      },
+      "e5": {
+        "title": "Drone (İHA) ile Haritalama",
+        "description": "Geniş alanların fotogrametrik yöntemlerle havadan yüksek çözünürlüklü haritalanması."
+      }
+    }
+  },
+  "About": {
+    "badgeLabel": "Lisans No",
+    "badgeValue": "6307-775",
+    "titleLine1": "Modern Teknoloji,",
+    "titleLine2": "Lisanslı Tecrübe",
+    "description1": "Şanlıurfa ve Haliliye bölgesinde, Fikret Çakır liderliğinde; Harita, Kadastro ve Mühendislik alanlarında resmi yetki ve yüksek teknolojiyle hizmet veriyoruz.",
+    "description2": "6307-775 nolu lisansımızla, mülkiyet sorunlarından imar uygulamalarına, hassas şantiye ölçümlerinden drone haritalamaya kadar geniş bir yelpazede güvenilir çözüm ortağınızız. Her projemizde hukuksal geçerliliği ve teknik doğruluğu esas alıyoruz.",
+    "stats": {
+      "experience": "Yıllık Tecrübe",
+      "projects": "Başarılı Proje",
+      "satisfaction": "Müşteri Memnuniyeti"
+    },
+    "systemActive": "SİSTEM AKTİF • 37.16° N, 38.79° E"
+  },
+  "Contact": {
+    "title": "İletişime Geçin",
+    "subtitle": "Projeleriniz için profesyonel çözümler ve teknik danışmanlık alın.",
+    "form": {
+      "nameLabel": "Ad Soyad",
+      "namePlaceholder": "Adınız Soyadınız",
+      "phoneLabel": "Telefon",
+      "phonePlaceholder": "05XX XXX XX XX",
+      "emailLabel": "E-posta",
+      "emailPlaceholder": "ornek@email.com",
+      "messageLabel": "Mesajınız",
+      "messagePlaceholder": "Projeniz veya talebiniz hakkında bilgi verin...",
+      "send": "Gönder"
+    },
+    "infoTitle": "Bize Ulaşın",
+    "addressTitle": "Adres",
+    "addressValue": "Yenişehir Mah. Haliliye / Şanlıurfa",
+    "phoneTitle": "Telefon",
+    "emailTitle": "E-posta",
+    "whatsapp": "WhatsApp",
+    "mappingEmailLabel": "Haritalama"
+  },
+  "Footer": {
+    "licenseLine1": "6307 - 775 NOLU",
+    "licenseLine2": "LİSANSLI HARİTA KADASTRO MÜHENDİSLİK BÜROSU",
+    "ownerLine1": "Fikret ÇAKIR",
+    "ownerLine2": "Lisanslı Harita Mühendisi",
+    "contact": "İletişim",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "rights": "Tüm hakları saklıdır.",
+    "designBy": "Design by Mirafikirevi"
+  },
+  "SEO": {
+    "homeTitle": "Çakırbey Harita | Şanlıurfa Lisanslı Harita Kadastro (LİHKAB)",
+    "homeDescription": "Şanlıurfa/Haliliye merkezli lisanslı harita, kadastro ve mühendislik hizmetleri. Aplikasyon, cins değişikliği, imar uygulamaları, drone/İHA haritalama ve şantiye ölçümleri.",
+    "homeKeywords": "harita, kadastro, LİHKAB, Şanlıurfa, Haliliye, aplikasyon, cins değişikliği, imar uygulamaları, plankote, halihazır harita, kübaj, şantiye ölçümü, drone, İHA haritalama",
+    "ihaTitle": "İHA ile Haritalama | Çakırbey Harita ve Mühendislik",
+    "ihaDescription": "Drone/İHA ile fotogrametri, ortofoto üretimi, 3B arazi modeli ve hızlı saha ölçümleri. Şanlıurfa’da yüksek doğruluklu İHA haritalama hizmetleri.",
+    "ihaKeywords": "İHA haritalama, drone ile haritalama, fotogrametri, ortofoto, 3B arazi modeli, nokta bulutu, GNSS, Şanlıurfa",
+    "serviceDetailTitle": "Hizmet Detayı | Çakırbey Harita",
+    "notFoundTitle": "Sayfa Bulunamadı"
+  },
+  "ServiceDetail": {
+    "back": "Hizmetlere Dön",
+    "badge": "Hizmet Detayı",
+    "detailTitle": "Hizmet Detayı",
+    "processTitle": "İşlem Süreci",
+    "documentsTitle": "Gerekli Belgeler",
+    "startNowTitle": "Hemen Başlayın",
+    "startNowText": "Projeniz için hızlı teklif alın veya bize WhatsApp üzerinden danışın.",
+    "quoteCta": "Teklif İste",
+    "whatsappCta": "WhatsApp ile Bilgi Al",
+    "whatsappText": "Merhaba, {service} hakkında bilgi almak istiyorum."
+  },
+  "IHA": {
+    "badge": "Çakırbey Harita ve Mühendislik",
+    "titleLine1": "Yeni Nesil Ölçüm Teknolojisi:",
+    "titleHighlight": "İHA ile Haritalama",
+    "description": "Geniş arazilerde santimetre hassasiyetinde, hızlı ve güvenilir dijital veriler. Geleneksel yöntemlerin ötesinde, projenizi geleceğe taşıyan mühendislik çözümleri.",
+    "ctaExplore": "Teknolojiyi Keşfet",
+    "features": {
+      "dtm": {
+        "title": "Sayısal Arazi Modelleri (DTM/DSM)",
+        "desc": "Arazi formunun 3 boyutlu dijital ikizlerinin oluşturulması. Yüzey analizleri ve eğim haritaları için temel altlık."
+      },
+      "volume": {
+        "title": "Hassas Kübaj Hesapları",
+        "desc": "Hafriyat ve dolgu miktarlarının hatasız analizi. Şantiye maliyet kontrolü ve ilerleme raporları için kesin sonuçlar."
+      },
+      "ortho": {
+        "title": "Yüksek Çözünürlüklü Ortofoto",
+        "desc": "Santimetre piksel hassasiyetinde güncel hava fotoğrafları. Planlama ve görselleştirme için detaylı altlıklar."
+      },
+      "model": {
+        "title": "3D Modelleme ve Görselleştirme",
+        "desc": "Şehir planlama ve mühendislik projeleri için gerçekçi modeller. Yapıların ve çevrenin fotorealistik sunumu."
+      }
+    },
+    "speedTitleLine1": "Hız ve Hassasiyetin",
+    "speedTitleHighlight": "Mükemmel Dengesi",
+    "speedDescription": "Geleneksel yöntemlerle haftalar süren ölçümleri, İHA teknolojisi ile saatler içinde tamamlıyoruz. İnsan hatasını minimize eden otonom uçuşlar ve yapay zeka destekli veri işleme süreçleri.",
+    "statSpeedValue": "5 Kat",
+    "statSpeedLabel": "Daha Hızlı Veri Toplama",
+    "statDataValue": "%100",
+    "statDataLabel": "Dijital & İzlenebilir Veri",
+    "dashboardStatus": "SYSTEM STATUS: ONLINE",
+    "dashboardGnss": "GNSS SATELLITES",
+    "dashboardGnssValue": "24 LOCKED",
+    "dashboardRtk": "RTK PRECISION",
+    "dashboardRtkValue": "1.2 CM",
+    "dashboardAlt": "FLIGHT ALTITUDE",
+    "dashboardAltValue": "120 M",
+    "dashboardBattery": "BATTERY LEVEL",
+    "dashboardBatteryValue": "98%",
+    "ctaTitle": "Teknolojimizle Tanışın",
+    "ctaDescription": "Projelerinizi bir üst seviyeye taşımak için en son teknolojiyi kullanıyoruz. Detaylı bilgi ve demo sunumu için bize ulaşın.",
+    "ctaButton": "İHA Projeleri İçin Görüşelim",
+    "ctaWhatsappText": "Merhaba, İHA projeleriniz hakkında görüşmek istiyorum."
+  }
+}

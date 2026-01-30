@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion, useInView, useSpring, useMotionValue } from "framer-motion";
 import { Award, CheckCircle2, Users } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -32,6 +33,7 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
 };
 
 export default function About() {
+  const t = useTranslations("About");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -65,7 +67,7 @@ export default function About() {
                   <div className="absolute bottom-8 left-8 right-8 p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg">
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                      <span className="text-xs font-mono text-white/85">SİSTEM AKTİF • 37.16° N, 38.79° E</span>
+                    <span className="text-xs font-mono text-white/85">{t("systemActive")}</span>
                     </div>
                   </div>
                 </div>
@@ -87,8 +89,8 @@ export default function About() {
                     <Award size={24} />
                   </div>
                   <div>
-                    <div className="text-xs text-zinc-500 font-medium uppercase">Lisans No</div>
-                    <div className="text-lg font-bold text-navy-900 dark:text-white">6307-775</div>
+                    <div className="text-xs text-zinc-500 font-medium uppercase">{t("badgeLabel")}</div>
+                    <div className="text-lg font-bold text-navy-900 dark:text-white">{t("badgeValue")}</div>
                   </div>
                 </div>
               </motion.div>
@@ -104,14 +106,14 @@ export default function About() {
           >
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white leading-tight">
-                Modern Teknoloji, <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-700">Lisanslı Tecrübe</span>
+                {t("titleLine1")} <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-700">{t("titleLine2")}</span>
               </h2>
               <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Şanlıurfa ve Haliliye bölgesinde, Fikret Çakır liderliğinde; Harita, Kadastro ve Mühendislik alanlarında resmi yetki ve yüksek teknolojiyle hizmet veriyoruz. 
+                {t("description1")} 
               </p>
               <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                6307-775 nolu lisansımızla, mülkiyet sorunlarından imar uygulamalarına, hassas şantiye ölçümlerinden drone haritalamaya kadar geniş bir yelpazede güvenilir çözüm ortağınızız. Her projemizde hukuksal geçerliliği ve teknik doğruluğu esas alıyoruz.
+                {t("description2")}
               </p>
             </div>
 
@@ -125,7 +127,7 @@ export default function About() {
                 <div className="mb-1">
                   <AnimatedCounter value={10} suffix="+" />
                 </div>
-                <div className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">Yıllık Tecrübe</div>
+                <div className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">{t("stats.experience")}</div>
               </div>
 
               {/* Stat 2 */}
@@ -136,7 +138,7 @@ export default function About() {
                 <div className="mb-1">
                   <AnimatedCounter value={1000} suffix="+" />
                 </div>
-                <div className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">Başarılı Proje</div>
+                <div className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">{t("stats.projects")}</div>
               </div>
 
               {/* Stat 3 */}
@@ -147,7 +149,7 @@ export default function About() {
                 <div className="mb-1">
                   <AnimatedCounter value={100} suffix="%" />
                 </div>
-                <div className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">Müşteri Memnuniyeti</div>
+                <div className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">{t("stats.satisfaction")}</div>
               </div>
             </div>
           </motion.div>

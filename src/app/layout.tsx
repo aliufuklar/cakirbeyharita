@@ -4,6 +4,9 @@ import "./globals.css";
 import ScrollProgress from "@/components/site/ScrollProgress";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { SITE } from "@/lib/site";
 
 const fontSans = Inter({
   variable: "--font-geist-sans",
@@ -15,29 +18,84 @@ const fontMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Çakırbey Harita | Şanlıurfa Lisanslı Harita Kadastro (LİHKAB)",
-  description: "Şanlıurfa/Haliliye merkezli, lisanslı harita ve kadastro hizmetleri. Aplikasyon, Cins Değişikliği, İmar Uygulamaları, Drone Haritalama ve Mühendislik çözümleri.",
-  icons: {
-    icon: [
-      { url: "/fav.svg", type: "image/svg+xml" },
-    ],
-    shortcut: ["/fav.svg"],
-  },
-};
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
-export default function RootLayout({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: "SEO" });
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: SITE.name,
+      template: `%s | Çakırbey Harita`,
+    },
+    description: t("homeDescription"),
+    keywords: t("homeKeywords"),
+    icons: {
+      icon: [{ url: "/fav.svg", type: "image/svg+xml" }],
+      shortcut: ["/fav.svg"],
+    },
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE.url}#localbusiness`,
+    name: SITE.legalName,
+    url: SITE.url,
+    logo: `${SITE.url}${SITE.logoPath}`,
+    email: SITE.email,
+    telephone: SITE.telephone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: SITE.address.streetAddress,
+      addressLocality: SITE.address.addressLocality,
+      addressRegion: SITE.address.addressRegion,
+      addressCountry: SITE.address.addressCountry,
+    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: SITE.telephone,
+        contactType: "customer service",
+        areaServed: "TR",
+        availableLanguage: ["tr", "en"],
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: SITE.telephoneAlt,
+        contactType: "customer service",
+        areaServed: "TR",
+        availableLanguage: ["tr", "en"],
+      },
+    ],
+    additionalProperty: [
+      { "@type": "PropertyValue", name: "Lisans No", value: SITE.licenseNo },
+    ],
+  };
+
   return (
-    <html lang="tr">
+    <html lang={locale}>
       <body className={`${fontSans.variable} ${fontMono.variable} antialiased`}>
-        <ScrollProgress />
-        <Header />
-        {children}
-        <Footer />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ScrollProgress />
+          <Header />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

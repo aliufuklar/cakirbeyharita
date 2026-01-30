@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations("Contact");
+
   return (
     <section id="iletisim" className="py-24 relative bg-zinc-50 dark:bg-black/80">
       <div className="container mx-auto px-6 relative z-10">
@@ -14,10 +17,10 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-4"
           >
-            İletişime Geçin
+            {t("title")}
           </motion.h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Projeleriniz için profesyonel çözümler ve teknik danışmanlık alın.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -33,42 +36,42 @@ export default function Contact() {
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-navy-900 dark:text-zinc-300">Ad Soyad</label>
+                  <label htmlFor="name" className="text-sm font-medium text-navy-900 dark:text-zinc-300">{t("form.nameLabel")}</label>
                   <input 
                     type="text" 
                     id="name"
                     className="w-full px-4 py-3 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all duration-300"
-                    placeholder="Adınız Soyadınız"
+                    placeholder={t("form.namePlaceholder")}
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="phone" className="text-sm font-medium text-navy-900 dark:text-zinc-300">Telefon</label>
+                  <label htmlFor="phone" className="text-sm font-medium text-navy-900 dark:text-zinc-300">{t("form.phoneLabel")}</label>
                   <input 
                     type="tel" 
                     id="phone"
                     className="w-full px-4 py-3 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all duration-300"
-                    placeholder="05XX XXX XX XX"
+                    placeholder={t("form.phonePlaceholder")}
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium text-navy-900 dark:text-zinc-300">E-posta</label>
+                <label htmlFor="email" className="text-sm font-medium text-navy-900 dark:text-zinc-300">{t("form.emailLabel")}</label>
                 <input 
                   type="email" 
                   id="email"
                   className="w-full px-4 py-3 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all duration-300"
-                  placeholder="ornek@email.com"
+                  placeholder={t("form.emailPlaceholder")}
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-navy-900 dark:text-zinc-300">Mesajınız</label>
+                <label htmlFor="message" className="text-sm font-medium text-navy-900 dark:text-zinc-300">{t("form.messageLabel")}</label>
                 <textarea 
                   id="message"
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all duration-300 resize-none"
-                  placeholder="Projeniz veya talebiniz hakkında bilgi verin..."
+                  placeholder={t("form.messagePlaceholder")}
                 ></textarea>
               </div>
 
@@ -77,7 +80,7 @@ export default function Contact() {
                 whileTap={{ scale: 0.98 }}
                 className="w-full py-4 bg-amber-500 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-amber-600 transition-colors shadow-md shadow-amber-500/20"
               >
-                <span>Gönder</span>
+                <span>{t("form.send")}</span>
                 <Send size={18} />
               </motion.button>
             </form>
@@ -91,15 +94,15 @@ export default function Contact() {
             className="space-y-8"
           >
             <div className="space-y-6">
-              <div className="text-lg font-semibold text-navy-900 dark:text-white">Bize Ulaşın</div>
+              <div className="text-lg font-semibold text-navy-900 dark:text-white">{t("infoTitle")}</div>
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-amber-100 dark:bg-amber-900/20 rounded-lg text-amber-600 dark:text-amber-500 mt-1">
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy-900 dark:text-white mb-1">Adres</h3>
+                  <h3 className="font-semibold text-navy-900 dark:text-white mb-1">{t("addressTitle")}</h3>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    Yenişehir Mah. Haliliye / Şanlıurfa
+                    {t("addressValue")}
                   </p>
                 </div>
               </div>
@@ -109,7 +112,7 @@ export default function Contact() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy-900 dark:text-white mb-1">Telefon</h3>
+                  <h3 className="font-semibold text-navy-900 dark:text-white mb-1">{t("phoneTitle")}</h3>
                   <div className="space-y-1 text-zinc-600 dark:text-zinc-400">
                     <a
                       className="block font-medium text-navy-900 dark:text-white hover:text-amber-600 dark:hover:text-amber-500 transition-colors"
@@ -123,7 +126,7 @@ export default function Contact() {
                     >
                       0 (534) 770 60 75
                       <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs font-semibold text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-                        WhatsApp
+                        {t("whatsapp")}
                       </span>
                     </a>
                   </div>
@@ -135,7 +138,7 @@ export default function Contact() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy-900 dark:text-white mb-1">E-posta</h3>
+                  <h3 className="font-semibold text-navy-900 dark:text-white mb-1">{t("emailTitle")}</h3>
                   <div className="space-y-1 text-zinc-600 dark:text-zinc-400">
                     <a
                       href="mailto:lihkab775@gmail.com"
@@ -147,7 +150,7 @@ export default function Contact() {
                       href="mailto:cakirbeyharita@gmail.com"
                       className="block font-medium text-navy-900 dark:text-white hover:text-amber-600 dark:hover:text-amber-500 transition-colors"
                     >
-                      Haritalama: cakirbeyharita@gmail.com
+                      {t("mappingEmailLabel")}: cakirbeyharita@gmail.com
                     </a>
                   </div>
                 </div>

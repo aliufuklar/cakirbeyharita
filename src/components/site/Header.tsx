@@ -6,22 +6,28 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 
 type NavItem =
-  | { key: string; label: string; type: "section"; id: "services" | "hakkimizda" | "iletisim" }
-  | { key: string; label: string; type: "route"; href: string };
+  | { key: string; type: "section"; id: "services" | "hakkimizda" | "iletisim" }
+  | { key: string; type: "route"; href: string };
 
 const navItems: NavItem[] = [
-  { key: "services", label: "Hizmetler", type: "section", id: "services" },
-  { key: "iha", label: "İHA", type: "route", href: "/hizmetler/iha-haritalama" },
-  { key: "about", label: "Hakkımızda", type: "section", id: "hakkimizda" },
-  { key: "contact", label: "İletişim", type: "section", id: "iletisim" },
+  { key: "services", type: "section", id: "services" },
+  { key: "iha", type: "route", href: "/hizmetler/iha-haritalama" },
+  { key: "about", type: "section", id: "hakkimizda" },
+  { key: "contact", type: "section", id: "iletisim" },
 ];
 
 export default function Header() {
   const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations("Nav");
+
   const pathname = usePathname() ?? "/";
-  const isHome = pathname === "/";
+  const basePrefix = `/${locale}`;
+  const isHome = pathname === basePrefix;
+  const homePath = basePrefix;
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
@@ -86,8 +92,8 @@ export default function Header() {
   }, [isHome, pathname]);
 
   const hrefFor = (item: NavItem) => {
-    if (item.type === "route") return item.href;
-    return isHome ? `#${item.id}` : `/#${item.id}`;
+    if (item.type === "route") return `${basePrefix}${item.href}`;
+    return isHome ? `#${item.id}` : `${homePath}#${item.id}`;
   };
 
   const isItemActive = (item: NavItem) => {
@@ -101,7 +107,7 @@ export default function Header() {
 
     if (item.type === "route") {
       e.preventDefault();
-      router.push(item.href);
+      router.push(`${basePrefix}${item.href}`);
       return;
     }
 
@@ -114,8 +120,12 @@ export default function Header() {
       return;
     }
 
-    router.push(`/#${item.id}`);
+    router.push(`${homePath}#${item.id}`);
   };
+
+  const pathWithoutLocale = pathname.replace(/^\/(tr|en)(?=\/|$)/, "") || "/";
+  const trPath = `/tr${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
+  const enPath = `/en${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
 
   return (
     <header
@@ -132,7 +142,7 @@ export default function Header() {
           isCompact ? "h-16" : "h-20",
         ].join(" ")}
       >
-        <a href="/" className="group flex items-center gap-3">
+        <a href={homePath} className="group flex items-center gap-3">
           <Image
             src="/cakirbey-logo.svg"
             alt="Çakırbey Harita"
@@ -158,15 +168,36 @@ export default function Header() {
                   : "text-brand-navy/80 hover:text-brand-navy",
               ].join(" ")}
             >
-              {item.label}
+              {t(item.key)}
             </a>
           ))}
+          <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-brand-navy/60">
+            <a
+              href={trPath}
+              className={[
+                "transition-colors",
+                locale === "tr" ? "text-brand-navy" : "hover:text-brand-navy",
+              ].join(" ")}
+            >
+              {t("tr")}
+            </a>
+            <span className="opacity-40">|</span>
+            <a
+              href={enPath}
+              className={[
+                "transition-colors",
+                locale === "en" ? "text-brand-navy" : "hover:text-brand-navy",
+              ].join(" ")}
+            >
+              {t("en")}
+            </a>
+          </div>
           <a
-            href={isHome ? "#iletisim" : "/#iletisim"}
-            onClick={(e) => onNavClick(e, { key: "contact", label: "İletişim", type: "section", id: "iletisim" })}
+            href={isHome ? "#iletisim" : `${homePath}#iletisim`}
+            onClick={(e) => onNavClick(e, { key: "contact", type: "section", id: "iletisim" })}
             className="group inline-flex h-10 items-center rounded-full border border-border bg-surface-strong/60 px-4 text-sm font-semibold text-brand-navy transition-all duration-300 hover:bg-white hover:shadow-[0_0_15px_rgba(158,50,56,0.22)] active:scale-95"
           >
-            Teklif Al
+            {t("quote")}
           </a>
         </nav>
 
@@ -201,15 +232,30 @@ export default function Header() {
                       : "text-brand-navy/80 hover:text-brand-navy",
                   ].join(" ")}
                 >
-                  {item.label}
+                  {t(item.key)}
                 </a>
               ))}
+              <div className="flex items-center justify-center gap-3 pt-2 text-sm font-semibold text-brand-navy/70">
+                <a
+                  href={trPath}
+                  className={locale === "tr" ? "text-brand-navy" : "hover:text-brand-navy"}
+                >
+                  {t("tr")}
+                </a>
+                <span className="opacity-40">|</span>
+                <a
+                  href={enPath}
+                  className={locale === "en" ? "text-brand-navy" : "hover:text-brand-navy"}
+                >
+                  {t("en")}
+                </a>
+              </div>
               <a
-                href={isHome ? "#iletisim" : "/#iletisim"}
-                onClick={(e) => onNavClick(e, { key: "contact", label: "İletişim", type: "section", id: "iletisim" })}
+                href={isHome ? "#iletisim" : `${homePath}#iletisim`}
+                onClick={(e) => onNavClick(e, { key: "contact", type: "section", id: "iletisim" })}
                 className="mt-2 inline-flex h-12 items-center justify-center rounded-lg bg-brand-navy text-white font-semibold"
               >
-                Teklif Al
+                {t("quote")}
               </a>
             </Container>
           </motion.div>
