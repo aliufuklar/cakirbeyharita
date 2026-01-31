@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import ScrollProgress from "@/components/site/ScrollProgress";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
@@ -16,7 +16,7 @@ export default async function LocaleLayout({
   if (!(routing.locales as readonly string[]).includes(params.locale)) notFound();
 
   setRequestLocale(params.locale as "tr" | "en");
-  const messages = await getMessages();
+  const messages = (await import(`../../../messages/${params.locale}.json`)).default;
 
   return (
     <NextIntlClientProvider locale={params.locale} messages={messages}>

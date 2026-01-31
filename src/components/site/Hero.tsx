@@ -1,9 +1,11 @@
+"use client";
+
 import Container from "./Container";
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
-export default async function Hero() {
-  const t = await getTranslations("Hero");
+export default function Hero() {
+  const t = useTranslations("Hero");
 
   return (
     <section className="pt-16">

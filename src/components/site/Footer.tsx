@@ -1,10 +1,12 @@
+"use client";
+
 import Container from "./Container";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
-export default async function Footer() {
-  const t = await getTranslations("Footer");
+export default function Footer() {
+  const t = useTranslations("Footer");
   const year = new Date().getFullYear();
 
   return (
