@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #071a2d;
@@ -61,6 +63,11 @@ body::before {
     radial-gradient(700px 420px at 80% 20%, rgba(11, 42, 74, 0.08) 0%, transparent 62%);
   background-size: 80px 80px, 80px 80px, auto, auto;
   mask-image: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 1) 0%, transparent 74%);
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 1) 0%, transparent 74%);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: cover;
+  -webkit-mask-size: cover;
   opacity: 0.95;
 }
 
